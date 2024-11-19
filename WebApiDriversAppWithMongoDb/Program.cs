@@ -1,4 +1,7 @@
 
+using WebApiDriversAppWithMongoDb.Configurations;
+using WebApiDriversAppWithMongoDb.Services;
+
 namespace WebApiDriversAppWithMongoDb
 {
     public class Program
@@ -9,7 +12,10 @@ namespace WebApiDriversAppWithMongoDb
 
             // Add services to the container.
 
+            builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("MongoDatabase"));
+
             builder.Services.AddControllers();
+            builder.Services.AddSingleton<DriverService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
