@@ -1,0 +1,6 @@
+@WebApiDriversAppWithMongoDb_HostAddress = http://localhost:5081
+
+GET {{WebApiDriversAppWithMongoDb_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
